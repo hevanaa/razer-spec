@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2007-2016 Michael Büsch, et al. Contact: http://bues.ch/h/razercfg -->
+<application>
+  <id type="desktop">razercfg.desktop</id>
+  <name>Razercfg</name>
+  <summary>A Razer device configuration tool</summary>
+  <summary xml:lang="sv">Razer konfigurationsverktyg</summary>
+  <metadata_license>CC-BY-SA</metadata_license>
+  <project_license>GPL-2</project_license>
+  <translation type="gettext">sleepyhead</translation>
+  <description>
+    <p>
+      Razercfg is the next generation Razer device configuration
+      tool bringing the Razer gaming experience to the free Open Source world.
+      Including commandline tool (razercfg) and QT GUI qrazercfg.
+    </p>
+    <p xml:lang="sv">
+      Razercfg är nästa generations verktyg för att konfigurera enheter 
+      från Razer. Detta innebär nya spelupplevelser för fri och öppen källkod.
+      Inkluderar ett kommandoradsverktyg (razercfg) och QT fönsterverktyg (qrazercfg). 
+    </p>
+  </description>
+  <screenshots>
+    <screenshot type="default" width="275" height="452">http://bues.ch/images/qrazercfg.png</screenshot>
+  </screenshots>
+  <url type="homepage">http://bues.ch/h/razercfg</url>
+  <updatecontact>johan.heikkila@gmail.com</updatecontact>
+</application>
