@@ -1,6 +1,6 @@
 Name:           razercfg
 Version:        0.37
-Release:        1.0
+Release:        5.1
 Summary:        A Razer device configuration tool
 # Icons are http://creativecommons.org/licenses/by/4.0/
 License:        GPLv2
