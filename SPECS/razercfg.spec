@@ -9,8 +9,6 @@ URL:            http://bues.ch/cms/hacking/razercfg.html
 Source0:        http://bues.ch/razercfg/%{name}-%{version}.tar.bz2
 # Upstream provides none of the following files
 Source1:        razercfg.appdata.xml
-# Suggested to upstream https://github.com/mbuesch/razer/issues/87
-Patch0:         0001-disable-system-tools-in-rpmbuild.patch
 
 BuildRequires:  cmake >= 2.4
 BuildRequires:  help2man
@@ -30,7 +28,6 @@ Including commandline tool (razercfg) and QT GUI qrazercfg.
 
 %prep
 %setup -q
-%patch0 -p1
 sed -i 's|DESTINATION lib|DESTINATION lib${LIB_SUFFIX}|' librazer/CMakeLists.txt
 
 %build
@@ -104,6 +101,8 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{python3_sitelib}/*
 
 %changelog
+* Sun Nov 20 2016 Johan Heikkilä <johan.heikkila@gmail.com> 0.38
+- Updated for latest version and Fedora 24
 * Sun Oct 16 2016 Johan Heikkilä <johan.heikkila@gmail.com> 0.37
 - Updated for latest version and Fedora 24
 * Tue May 17 2016 Huaren Zhong <huaren.zhong@gmail.com> 0.32
