@@ -1,6 +1,6 @@
 Name:           razercfg
-Version:        0.37
-Release:        5.1
+Version:        0.38
+Release:        1.0%{?dist}
 Summary:        A Razer device configuration tool
 # Icons are http://creativecommons.org/licenses/by/4.0/
 License:        GPLv2
@@ -62,7 +62,7 @@ ctest -V %{?_smp_mflags}
 
 %post
 # By default, Fedora services are not enabled and started
-# Policy is to configure services with  Presets. But razerd
+# Policy is to configure services with Presets. But razerd
 # is quite useless for the user if not started...
 #%systemd_post razerd.service
 systemctl enable razerd.service
