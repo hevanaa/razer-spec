@@ -1,7 +1,7 @@
 # razer-spec
 This is a spec file for building Fedora rpm of razercfg. 
 
-Rpm package https://copr.fedorainfracloud.org/coprs/johanh/razercfg/
+Fedora rpm repository https://copr.fedorainfracloud.org/coprs/johanh/razercfg/
 
 Razercfg home page https://bues.ch/h/razercfg
 
