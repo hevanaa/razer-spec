@@ -1,5 +1,5 @@
 Name:           razercfg
-Version:        0.38
+Version:        0.39
 Release:        1.0%{?dist}
 Summary:        A Razer device configuration tool
 # Icons are http://creativecommons.org/licenses/by/4.0/
@@ -18,6 +18,7 @@ BuildRequires:  libappstream-glib
 BuildRequires:  python3-qt4
 BuildRequires:  pkgconfig(libusb-1.0)
 BuildRequires:  python3-devel
+BuildRequires:  desktop-file-utils
 %{?systemd_requires}
 BuildRequires:  systemd
 
@@ -62,7 +63,7 @@ ctest -V %{?_smp_mflags}
 
 %post
 # By default, Fedora services are not enabled and started
-# Policy is to configure services with Presets. But razerd
+# Policy is to configure services with  Presets. But razerd
 # is quite useless for the user if not started...
 #%systemd_post razerd.service
 systemctl enable razerd.service
@@ -101,6 +102,8 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{python3_sitelib}/*
 
 %changelog
+* Thu May 18 2017 Johan Heikkilä <johan.heikkila@gmail.com> 0.38
+- Updated to 0.39
 * Sun Nov 20 2016 Johan Heikkilä <johan.heikkila@gmail.com> 0.38
 - Updated for latest version and Fedora 24
 * Sun Oct 16 2016 Johan Heikkilä <johan.heikkila@gmail.com> 0.37
