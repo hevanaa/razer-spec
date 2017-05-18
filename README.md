@@ -1,9 +1,10 @@
 # razer-spec
-This is a spec file for building Fedora rpm of razer. 
+This is a spec file for building a Fedora rpm of razercfg. 
 
-Rpm package available in rpmsphere-release 
-https://build.opensuse.org/project/show/home:zhonghuaren
+Fedora rpm repository https://copr.fedorainfracloud.org/coprs/johanh/razercfg/
 
-Razer home page https://bues.ch/h/razercfg
+Razercfg home page https://bues.ch/h/razercfg
 
-Razer source https://github.com/mbuesch/razer
+Razercfg source https://github.com/mbuesch/razer
+
+Razercfg is copyright (C) Michael Büsch et al.
