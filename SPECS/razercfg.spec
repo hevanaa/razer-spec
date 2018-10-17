@@ -1,6 +1,6 @@
 Name:           razercfg
 Version:        0.39
-Release:        1.0%{?dist}
+Release:        1.1%{?dist}
 Summary:        A Razer device configuration tool
 # Icons are http://creativecommons.org/licenses/by/4.0/
 License:        GPLv2
@@ -11,6 +11,7 @@ Source0:        http://bues.ch/razercfg/%{name}-%{version}.tar.bz2
 Source1:        razercfg.appdata.xml
 
 BuildRequires:  cmake >= 2.4
+BuildRequires:  gcc
 BuildRequires:  help2man
 BuildRequires:  hicolor-icon-theme
 BuildRequires:  libusb-devel
@@ -21,6 +22,8 @@ BuildRequires:  python3-devel
 BuildRequires:  desktop-file-utils
 %{?systemd_requires}
 BuildRequires:  systemd
+
+Requires:       python3-pyside
 
 %description
 Razercfg is the next generation Razer device configuration
@@ -102,6 +105,8 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{python3_sitelib}/*
 
 %changelog
+* Tue May 1 2018 Johan Heikkilä <johan.heikkila@gmail.com> 0.39:1.1
+- Fedora 28 supports python3-pyside
 * Thu May 18 2017 Johan Heikkilä <johan.heikkila@gmail.com> 0.38
 - Updated to 0.39
 * Sun Nov 20 2016 Johan Heikkilä <johan.heikkila@gmail.com> 0.38
