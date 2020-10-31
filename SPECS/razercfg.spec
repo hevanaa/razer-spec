@@ -1,6 +1,6 @@
 Name:           razercfg
 Version:        0.42
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A Razer device configuration tool
 # Icons are http://creativecommons.org/licenses/by/4.0/
 License:        GPLv2
@@ -36,21 +36,20 @@ sed -i 's|DESTINATION lib|DESTINATION lib${LIB_SUFFIX}|' librazer/CMakeLists.txt
 
 %build
 %cmake .
-%make_build %{?_smp_mflags}
+%cmake_build %{?_smp_mflags}
 
 %install
-%make_install DESTDIR=%{buildroot}
+%cmake_install
 rm %{buildroot}%{_libdir}/librazer.so
-# Systemd service and udev rule
-install -D -m 444 razerd.service %{buildroot}%{_unitdir}/razerd.service
-install -D -m 444 udev.rules %{buildroot}%{_udevrulesdir}/80-razer.rules
 # install man pages
 mkdir -p %{buildroot}%{_mandir}/man1
-help2man -N ./ui/razercfg > %{buildroot}%{_mandir}/man1/razercfg.1
+PYTHONPATH=%{buildroot}/usr/lib/python3.9/site-packages/ \
+help2man -N %{buildroot}%{_bindir}/razercfg > \
+%{buildroot}%{_mandir}/man1/razercfg.1
 # Note that the following line breaks if razercfg is actually installed
-help2man -N -n "Use specific profiles per game" ./ui/razer-gamewrapper > \
+help2man -N -n "Use specific profiles per game" %{buildroot}%{_bindir}/razer-gamewrapper > \
 %{buildroot}%{_mandir}/man1/razer-gamewrapper.1
-LD_LIBRARY_PATH=./librazer/ help2man -N ./razerd/razerd > \
+LD_LIBRARY_PATH=%{buildroot}%{_libdir} help2man -N %{buildroot}%{_bindir}/razerd > \
 %{buildroot}%{_mandir}/man1/razerd.1
 # install appdata file
 install -Dpm 0644 %{SOURCE1} \
@@ -106,6 +105,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{python3_sitelib}/*
 
 %changelog
+* Sat Oct 31 2020 Johan Heikkilä <johan.heikkila@gmail.com> 0.42:2
+- Updated spec due to changes in Fedora 33
+
 * Fri Jun 5 2020 Johan Heikkilä <johan.heikkila@gmail.com> 0.42:1
 - Update to 0.42
 
