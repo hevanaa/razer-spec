@@ -1,6 +1,6 @@
 Name:           razercfg
 Version:        0.42
-Release:        2%{?dist}
+Release:        4%{?dist}
 Summary:        A Razer device configuration tool
 # Icons are http://creativecommons.org/licenses/by/4.0/
 License:        GPLv2
@@ -14,7 +14,6 @@ BuildRequires:  cmake >= 2.4
 BuildRequires:  gcc
 BuildRequires:  help2man
 BuildRequires:  hicolor-icon-theme
-BuildRequires:  libusb-devel
 BuildRequires:  libappstream-glib
 BuildRequires:  python3-qt5
 BuildRequires:  pkgconfig(libusb-1.0)
@@ -44,7 +43,7 @@ rm %{buildroot}%{_libdir}/librazer.so
 # install man pages
 mkdir -p %{buildroot}%{_mandir}/man1
 PYTHONPATH=%{buildroot}/usr/lib/python3.9/site-packages/ \
-help2man -N %{buildroot}%{_bindir}/razercfg > \
+help2man -N --no-discard-stderr %{buildroot}%{_bindir}/razercfg > \
 %{buildroot}%{_mandir}/man1/razercfg.1
 # Note that the following line breaks if razercfg is actually installed
 help2man -N -n "Use specific profiles per game" %{buildroot}%{_bindir}/razer-gamewrapper > \
@@ -105,6 +104,12 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{python3_sitelib}/*
 
 %changelog
+* Sat Nov 12 2022 Johan Heikkilä <johan.heikkila@gmail.com> 0.42:4
+- Updated spec for Fedora 37
+
+* Thu Nov 25 2021 Johan Heikkilä <johan.heikkila@gmail.com> 0.42:3
+- Updated spec due to Fedora 35
+
 * Sat Oct 31 2020 Johan Heikkilä <johan.heikkila@gmail.com> 0.42:2
 - Updated spec due to changes in Fedora 33
 
